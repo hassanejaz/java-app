@@ -1,10 +1,6 @@
-**Hello World Java App**
+**Hello Birthday Java App**
 
 This is a java Hello World app which stores a username and its birthday.
-
-# Hello birthday app
-
-Web application that saves username and birthday, and returns hello birthday message. 
 
 # Testing on Local
 
