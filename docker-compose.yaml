@@ -1,0 +1,41 @@
+version: "3"
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    networks:
+      - my-network
+    container_name: "hello-world-app"
+    links:
+      - "db:database"
+    ports:
+      - "8080:8080"
+    expose:
+      - 8080
+    depends_on:
+      - db
+    environment:
+      - DATABASE_HOST=db
+  db:
+    build:
+      context: ./db
+      dockerfile: Dockerfile
+    container_name: "postgres"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=helloworld
+    ports:
+      - "5432:5432"
+    expose:
+      - 5432
+    networks:
+      - my-network
+    volumes:
+      - my_dbdata:/var/lib/postgresql/data
+volumes:
+  my_dbdata:
+networks:
+  my-network:
+    driver: bridge

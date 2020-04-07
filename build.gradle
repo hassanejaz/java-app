@@ -1,0 +1,47 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.6.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+	id 'com.google.cloud.tools.jib' version '1.8.0'
+}
+
+group = 'com.revolut'
+version = 'helloworld'
+sourceCompatibility = '11'
+
+configurations {
+	developmentOnly
+	runtimeClasspath {
+		extendsFrom developmentOnly
+	}
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+	compileOnly 'org.projectlombok:lombok'
+	compile group: 'org.postgresql', name: 'postgresql', version: '42.1.4'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.projectlombok:lombok'
+	compile("org.springframework.boot:spring-boot-starter-actuator")
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.10.1'
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.10.1'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compile "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.8.6"
+
+
+}
+
+test {
+	useJUnitPlatform()
+}
