@@ -1,8 +1,8 @@
-**Hello Birthday Java App**
+# Hello Birthday Java App
 
 This is a java Hello World app which stores a username and its birthday.
 
-# Testing on Local
+**Testing on Local**
 
 The app can be ran by simply running the below docker-compose command. It will bring up 2 docker containers for the java app and postgress db.
 API calls are executed from console using curl, Postman, browser (GET) etc. Below is the example for some curl commands to be ran after docker-compose command is ran.
