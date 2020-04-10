@@ -6,7 +6,7 @@ This is a java Hello World app which stores a username and its birthday.
 ## Pre-requirements
 - Docker installed and running locally
 - Java 11 
-- Gradle to build the the project. Jar file is in libs dir
+- Gradle 5 to build the the project .jar file
 
 
 **Testing on Local**
